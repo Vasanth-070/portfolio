@@ -18,5 +18,11 @@ class ColorConstants {
 
   ///canvasColor - light
   static const white = Colors.white;
+
   static const black374151 = Color(0xFF374151);
+  static const blackD1D5Db = Color(0xFFd1d5db);
+  static const black9CA3AF = Color(0xFF9ca3af);
+  static const black6b7280 = Color(0xFF6b7280);
+  static const black1f2937 = Color(0xFF1f2937);
+  static const black030712 = Color(0xFF030712);
 }

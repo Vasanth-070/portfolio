@@ -9,17 +9,27 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  void toggleTheme() {
+    setState((() => {}));
+  }
+
+  @override
   Widget build(BuildContext context) {
+    AppThemeData.instance.setupCallBack(toggleTheme);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Vasanth's Portfolio",
-      theme: AppThemeData.lightTheme,
-      darkTheme: AppThemeData.darkTheme,
-      themeMode: AppContext.theme,
+      theme: AppThemeData.instance.lightTheme,
+      darkTheme: AppThemeData.instance.darkTheme,
+      themeMode: AppThemeData.instance.theme,
       builder: (context, widget) {
         return ResponsiveWrapper.builder(
             ClampingScrollWrapper.builder(context, widget!),
@@ -45,3 +55,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+/*design file
+https://www.figma.com/file/Rtg2vQoZFfMhQsz9KnjL7H/Personal-Portfolio-Website-Template-%257C-Mobile-%2526-Desktop-(Community)?node-id=333%3A792&mode=design*/

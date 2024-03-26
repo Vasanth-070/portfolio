@@ -5,9 +5,7 @@ import 'package:flutter/material.dart';
 
 class IconWithImage extends StatelessWidget {
   final IconWithImageData data;
-  const IconWithImage(
-      {super.key,
-      required this.data});
+  const IconWithImage({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {

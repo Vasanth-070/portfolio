@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:portfolio/theme_data/app_theme_data.dart';
 import 'package:portfolio/widgets/navigation/nav_bar.dart';
 
 import '../app_context.dart';
@@ -14,7 +15,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  void _incrementCounter() {}
+  void _incrementCounter() {
+  }
+
   final _scrollController = ScrollController();
   List<Widget> get navButtons {
     return const [
@@ -32,7 +35,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {});
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    AppContext.setupThemeColorAndContext(context);
   }
 
   @override
@@ -43,7 +51,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    AppContext.context = context;
     return Scaffold(
       body: Stack(
         alignment: Alignment.topLeft,
@@ -80,15 +87,15 @@ class _MyHomePageState extends State<MyHomePage> {
           ClipRect(
             child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                child: const NavBar()),
+                child: NavBar()),
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: _incrementCounter,
+      //   tooltip: 'Increment',
+      //   child: const Icon(Icons.add),
+      // ),
     );
   }
 }

@@ -1,62 +1,50 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app_context.dart';
 
-class AppTextThemeData {
-  static final fontColor = Theme.of(AppContext.context).primaryColor;
-
-  static final heading1 = TextStyle(
+class AppTextTheme {
+  TextStyle heading1({required Color color}) => TextStyle(
       fontSize: isTablet ? 48 : 36,
       fontWeight: isTablet ? FontWeight.w700 : FontWeight.w600,
-      color: fontColor);
+      color: color);
 
-  static final heading2 =
-      TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: fontColor);
+  TextStyle heading2({required Color color}) =>
+      TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: color);
 
-  static final heading3SemiBold =
-      TextStyle(fontSize: 24, fontWeight: FontWeight.w600, color: fontColor);
+  TextStyle heading3SemiBold({required Color color}) =>
+      TextStyle(fontSize: 24, fontWeight: FontWeight.w600, color: color);
 
-  static final heading3Bold =
-      TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: fontColor);
+  TextStyle heading3Bold({required Color color}) =>
+      TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: color);
 
-  static final subtitle = TextStyle(
-      fontSize: 18, fontWeight: FontWeight.w400, color: fontColor, height: 1.5);
+  TextStyle subtitle({required Color color}) => TextStyle(
+      fontSize: 18, fontWeight: FontWeight.w400, color: color, height: 1.5);
+  TextStyle subtitleBold({required Color color}) => TextStyle(
+      fontSize: 18, fontWeight: FontWeight.w600, color: color, height: 1.55);
 
-  static final subtitleBold = TextStyle(
-      fontSize: 18,
-      fontWeight: FontWeight.w600,
-      color: fontColor,
-      height: 1.55);
+  TextStyle body1({required Color color}) => TextStyle(
+      fontSize: 16, fontWeight: FontWeight.w400, color: color, height: 1.5);
 
-  static final body1 = TextStyle(
-      fontSize: 16, fontWeight: FontWeight.w400, color: fontColor, height: 1.5);
-
-  static final body2 = TextStyle(
-      fontSize: 16, fontWeight: FontWeight.w400, color: fontColor, height: 1.5);
+  TextStyle body2({required Color color}) => TextStyle(
+      fontSize: 16, fontWeight: FontWeight.w400, color: color, height: 1.5);
 
   static TextStyle body2Medium({required Color color}) {
     return TextStyle(
         fontSize: 16, fontWeight: FontWeight.w500, color: color, height: 1.5);
   }
 
-  static final body2SemiBold = TextStyle(
-      fontSize: 16, fontWeight: FontWeight.w600, color: fontColor, height: 1.5);
+  TextStyle body2SemiBold({required Color color}) => TextStyle(
+      fontSize: 16, fontWeight: FontWeight.w600, color: color, height: 1.5);
 
-  static final body2UnderLine = TextStyle(
+  TextStyle body2UnderLine({required Color color}) => TextStyle(
       fontSize: 16,
       fontWeight: FontWeight.w400,
-      color: fontColor,
+      color: color,
       height: 1.5,
       decoration: TextDecoration.underline);
 
-  static final body3 = TextStyle(
-      fontSize: 14,
-      fontWeight: FontWeight.w400,
-      color: fontColor,
-      height: 1.42);
+  TextStyle body3({required Color color}) => TextStyle(
+      fontSize: 14, fontWeight: FontWeight.w400, color: color, height: 1.42);
 
-  static final body3Medium = TextStyle(
-      fontSize: 14,
-      fontWeight: FontWeight.w500,
-      color: fontColor,
-      height: 1.42);
+  TextStyle body3Medium({required Color color}) => TextStyle(
+      fontSize: 14, fontWeight: FontWeight.w500, color: color, height: 1.42);
 }

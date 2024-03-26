@@ -1,10 +1,11 @@
-
 import 'package:flutter/cupertino.dart';
 
 class HoverableWidget extends StatefulWidget {
   final Widget child;
   final HoverableWidgetData data;
-  const HoverableWidget({super.key, required this.child, required this.data});
+  final VoidCallback? onTapped;
+  const HoverableWidget(
+      {super.key, required this.child, required this.data, this.onTapped});
 
   @override
   State<HoverableWidget> createState() => _HoverableWidgetState();
@@ -22,16 +23,19 @@ class _HoverableWidgetState extends State<HoverableWidget> {
       onExit: (event) => setState(() {
         isHovered = false;
       }),
-      child: Container(
-        height: widget.data.size.height,
-        width: widget.data.size.width,
-        decoration: BoxDecoration(
-            color: isHovered
-                ? widget.data.hoveredColor
-                : widget.data.backgroundColor,
-            borderRadius:
-                BorderRadius.all(Radius.circular(widget.data.borderRadius))),
-        child: widget.child,
+      child: GestureDetector(
+        onTap: widget.onTapped,
+        child: Container(
+          height: widget.data.size.height,
+          width: widget.data.size.width,
+          decoration: BoxDecoration(
+              color: isHovered
+                  ? widget.data.hoveredColor
+                  : widget.data.backgroundColor,
+              borderRadius:
+                  BorderRadius.all(Radius.circular(widget.data.borderRadius))),
+          child: widget.child,
+        ),
       ),
     );
   }

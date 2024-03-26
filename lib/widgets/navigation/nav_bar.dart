@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:portfolio/theme_data/app_theme_data.dart';
+import 'package:portfolio/utils/constants.dart';
 import 'package:portfolio/widgets/components/cta.dart';
 import 'package:portfolio/widgets/navigation/nav_bar_styler.dart';
 
-import '../../app_context.dart';
 import '../components/hoverable_widget.dart';
 import '../components/icon_with_image.dart';
 import 'nav_button.dart';
@@ -16,29 +17,49 @@ class NavBar extends StatefulWidget {
 }
 
 class _NavBarState extends State<NavBar> {
+  late NavBarStyler styler;
+
+  @override
+  void initState() {
+    super.initState();
+    styler = NavBarStyler();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    styler.setupBuildContext(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 80),
-      color: Colors.transparent,
-      child: const Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            MouseRegion(
-              cursor: SystemMouseCursors.click,
-              child: Text(
-                "Vasanth",
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
-              ),
-            ),
-            RightNavView()
-          ]),
+      decoration: const BoxDecoration(
+          color: Colors.transparent,
+          border: Border(bottom: BorderSide(color: Colors.white))),
+      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+        MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: Text(
+            "Vasanth",
+            style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.w700,
+                color: Constants.themeColor.gray900),
+          ),
+        ),
+        RightNavView(
+          styler: styler,
+        )
+      ]),
     );
   }
 }
 
 class RightNavView extends StatelessWidget {
-  const RightNavView({super.key});
+  final NavBarStyler styler;
+  const RightNavView({super.key, required this.styler});
 
   List<Widget> get navButtons {
     return const [
@@ -51,7 +72,6 @@ class RightNavView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final styler = NavBarStyler();
     return IntrinsicHeight(
       child: SizedBox(
         height: 36,
@@ -61,11 +81,12 @@ class RightNavView extends StatelessWidget {
             const Gap(24),
             VerticalDivider(
               width: 1,
-              color: Theme.of(context).primaryColor,
+              color: Constants.themeColor.gray100,
             ),
             const Gap(24),
             HoverableWidget(
               data: styler.themeIconHoverData,
+              onTapped: AppThemeData.instance.toggleAppTheme,
               child: IconWithImage(data: styler.themeIconData),
             ),
             const Gap(16),

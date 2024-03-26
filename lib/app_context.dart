@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/theme_data/app_theme_data.dart';
+import 'package:portfolio/theme_data/color/app_color_theme_data.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class AppContext {
-  static late final BuildContext context;
-  static ThemeMode theme = ThemeMode.light;
+  static late BuildContext context;
 
-  static bool get isLightThemeEnabled {
-    return theme == ThemeMode.light;
+  static void setupThemeColorAndContext(BuildContext bContext) {
+    context = bContext;
+    AppThemeData.instance.themeColor =
+        Theme.of(context).extension<AppColorTheme>()!;
   }
 }
 
