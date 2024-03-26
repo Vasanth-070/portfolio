@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/app_context.dart';
 import 'package:portfolio/pages/home_page.dart';
 import 'package:portfolio/theme_data/app_theme_data.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Vasanth's Portfolio",
       theme: AppThemeData.lightTheme,
-      themeMode: ThemeMode.light,
+      darkTheme: AppThemeData.darkTheme,
+      themeMode: AppContext.theme,
       builder: (context, widget) {
         return ResponsiveWrapper.builder(
             ClampingScrollWrapper.builder(context, widget!),

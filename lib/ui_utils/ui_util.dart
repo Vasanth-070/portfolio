@@ -2,18 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-Widget vSpace(double height) {
-  return SizedBox(
-    height: height,
-  );
-}
-
-Widget hSpace(double width) {
-  return SizedBox(
-    width: width,
-  );
-}
-
 MaterialColor generateMaterialColor(Color color) {
   return MaterialColor(color.value, {
     50: tintColor(color, 0.9),

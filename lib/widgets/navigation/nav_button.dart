@@ -34,8 +34,8 @@ class _NavButtonState extends State<NavButton> {
           child: Text(widget.title,
               style: AppTextThemeData.body2Medium(
                   color: onHover
-                      ? Theme.of(AppContext.context).primaryColor
-                      : Theme.of(AppContext.context).primaryColorLight))),
+                      ? Theme.of(context).primaryColor
+                      : Theme.of(context).primaryColorLight))),
     );
   }
 }

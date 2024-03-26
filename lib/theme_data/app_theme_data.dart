@@ -14,4 +14,15 @@ class AppThemeData {
       primarySwatch: generateMaterialColor(ColorConstants.black111827),
       canvasColor: ColorConstants.white,
      );
+
+  static final darkTheme = ThemeData(
+      fontFamily: Constants.defaultFont,
+      primaryColor: ColorConstants.black111827,
+      primaryColorLight: ColorConstants.black4B5563,
+      hoverColor: ColorConstants.whiteF3F4F6,
+      highlightColor: ColorConstants.blackE5E7EB,
+      dialogBackgroundColor: ColorConstants.whiteF9FAFB,
+      primarySwatch: generateMaterialColor(ColorConstants.black111827),
+      canvasColor: ColorConstants.white,
+     );
 }
