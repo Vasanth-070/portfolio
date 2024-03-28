@@ -1,8 +1,11 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:portfolio/theme_data/app_theme_data.dart';
+import 'package:portfolio/utils/constants.dart';
 import 'package:portfolio/widgets/navigation/nav_bar.dart';
+import 'package:portfolio/widgets/profile_view/profile_view.dart';
 
 import '../app_context.dart';
 import '../widgets/navigation/nav_button.dart';
@@ -15,18 +18,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  void _incrementCounter() {
-  }
+  void _incrementCounter() {}
 
   final _scrollController = ScrollController();
-  List<Widget> get navButtons {
-    return const [
-      NavButton(title: 'About'),
-      NavButton(title: 'Work'),
-      NavButton(title: 'Testimonial'),
-      NavButton(title: 'Contact')
-    ];
-  }
 
   void listenToScroll() {
     _scrollController.addListener(() {});
@@ -62,9 +56,10 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  height: 400,
-                  color: Colors.white,
+                  height: 75,
+                  color: Constants.themeColor.defaultt,
                 ),
+                ProfileView(),
                 Container(
                   height: 400,
                   color: Colors.red,
@@ -87,6 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ClipRect(
             child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                // ignore: prefer_const_constructors
                 child: NavBar()),
           ),
         ],

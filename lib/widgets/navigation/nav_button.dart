@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/utils/constants.dart';
 
 import '../../theme_data/app_text_theme_data.dart';
 
@@ -32,8 +33,8 @@ class _NavButtonState extends State<NavButton> {
           child: Text(widget.title,
               style: AppTextTheme.body2Medium(
                   color: onHover
-                      ? Theme.of(context).primaryColor
-                      : Theme.of(context).primaryColorLight))),
+                      ? Constants.themeColor.gray900
+                      : Constants.themeColor.gray600))),
     );
   }
 }

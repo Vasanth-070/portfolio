@@ -25,4 +25,6 @@ class ColorConstants {
   static const black6b7280 = Color(0xFF6b7280);
   static const black1f2937 = Color(0xFF1f2937);
   static const black030712 = Color(0xFF030712);
+
+  static const green10B981 = Color(0xff10B981);
 }

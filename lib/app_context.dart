@@ -17,6 +17,10 @@ bool get isMobile {
   return ResponsiveWrapper.of(AppContext.context).isMobile;
 }
 
+bool get isTabOrDesk {
+  return isTablet || isDesktop;
+}
+
 bool get isTablet {
   return ResponsiveWrapper.of(AppContext.context).isTablet;
 }

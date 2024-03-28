@@ -24,6 +24,7 @@ class _CTAState extends State<CTA> {
           height: widget.data.size.height,
           width: widget.data.size.width,
           padding: widget.data.padding,
+          alignment: Alignment.center,
           decoration: BoxDecoration(
               color: isHovered
                   ? widget.data.hoverColor

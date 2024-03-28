@@ -28,6 +28,7 @@ class _HoverableWidgetState extends State<HoverableWidget> {
         child: Container(
           height: widget.data.size.height,
           width: widget.data.size.width,
+          alignment: Alignment.center,
           decoration: BoxDecoration(
               color: isHovered
                   ? widget.data.hoveredColor

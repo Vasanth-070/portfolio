@@ -6,3 +6,7 @@ class Constants {
   static AppColorTheme get themeColor => AppThemeData.instance.themeColor;
 }
 
+getAssetPath(String of) {
+  final name = of;
+  return "assets/images/$name";
+}
