@@ -1,16 +1,14 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
-import 'package:portfolio/theme_data/app_theme_data.dart';
 import 'package:portfolio/utils/constants.dart';
 import 'package:portfolio/widgets/about_me/about_me.dart';
+import 'package:portfolio/widgets/experience/experince_view.dart';
 import 'package:portfolio/widgets/navigation/nav_bar.dart';
 import 'package:portfolio/widgets/profile_view/profile_view.dart';
 import 'package:portfolio/widgets/skills_view/skills_view.dart';
 
 import '../app_context.dart';
-import '../widgets/navigation/nav_button.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -82,10 +80,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: SkillsView(),
                 ),
                 Container(
-                  color: Constants.themeColor.defaultt,
+                  color: Constants.themeColor.gray50,
                   alignment: Alignment.center,
                   padding: padding,
-                  child: SkillsView(),
+                  child: ExperienceView(),
                 ),
                 Container(
                   height: 400,
