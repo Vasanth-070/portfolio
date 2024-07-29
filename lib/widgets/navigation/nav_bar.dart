@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/theme_data/app_theme_data.dart';
@@ -11,8 +13,8 @@ import '../components/hoverable_widget.dart';
 import 'nav_button.dart';
 
 class NavBar extends StatefulWidget {
-  const NavBar({super.key});
-
+  const NavBar({super.key, required this.navStreamController});
+  final StreamController<NavButtonType> navStreamController;
   @override
   State<NavBar> createState() => _NavBarState();
 }
@@ -53,6 +55,7 @@ class _NavBarState extends State<NavBar> {
         ),
         RightNavView(
           styler: styler,
+          navStreamController: widget.navStreamController,
         )
       ]),
     );
@@ -61,15 +64,16 @@ class _NavBarState extends State<NavBar> {
 
 class RightNavView extends StatelessWidget {
   final NavBarStyler styler;
-  const RightNavView({super.key, required this.styler});
+  final StreamController<NavButtonType> navStreamController;
 
-  List<Widget> get navButtons {
-    return [
-      NavButton(title: 'About'),
-      NavButton(title: 'Work'),
-      NavButton(title: 'Testimonial'),
-      NavButton(title: 'Contact')
-    ];
+  const RightNavView(
+      {super.key, required this.styler, required this.navStreamController});
+
+  Iterable<Widget> get navButtons {
+    return NavButtonType.values.map((btn) => NavButton(
+          type: btn,
+          onTap: () => navStreamController.add(btn),
+        ));
   }
 
   String get modeChangeIcon {
@@ -107,5 +111,28 @@ class RightNavView extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+enum NavButtonType {
+  about('About'),
+  work('Work'),
+  testimonial('Testimonial'),
+  contact('Contact');
+
+  const NavButtonType(this.value);
+  final String value;
+
+  int get id {
+    switch (this) {
+      case NavButtonType.about:
+        return 1;
+      case NavButtonType.work:
+        return 2;
+      case NavButtonType.testimonial:
+        return 3;
+      case NavButtonType.contact:
+        return 4;
+    }
   }
 }

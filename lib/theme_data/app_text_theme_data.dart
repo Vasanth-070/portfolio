@@ -9,17 +9,20 @@ class AppTextTheme {
 
   static TextStyle heading2({required Color color}) =>
       TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: color);
+  static TextStyle heading2SemiBold({required Color color}) =>
+      TextStyle(fontSize: 36, fontWeight: FontWeight.w600, color: color);
 
   static TextStyle heading3SemiBold({required Color color}) =>
       TextStyle(fontSize: 24, fontWeight: FontWeight.w600, color: color);
-
   static TextStyle heading3Bold({required Color color}) =>
       TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: color);
 
   static TextStyle subtitle({required Color color}) => TextStyle(
       fontSize: 18, fontWeight: FontWeight.w400, color: color, height: 1.5);
+  static TextStyle subtitleSemiBold({required Color color}) => TextStyle(
+      fontSize: 20, fontWeight: FontWeight.w600, color: color, height: 1.5);
   static TextStyle subtitleBold({required Color color}) => TextStyle(
-      fontSize: 18, fontWeight: FontWeight.w600, color: color, height: 1.55);
+      fontSize: 18, fontWeight: FontWeight.w600, color: color, height: 1.4);
 
   static TextStyle body1({required Color color}) => TextStyle(
       fontSize: 16, fontWeight: FontWeight.w400, color: color, height: 1.5);
@@ -31,10 +34,8 @@ class AppTextTheme {
     return TextStyle(
         fontSize: 16, fontWeight: FontWeight.w500, color: color, height: 1.5);
   }
-
   static TextStyle body2SemiBold({required Color color}) => TextStyle(
       fontSize: 16, fontWeight: FontWeight.w600, color: color, height: 1.5);
-
   static TextStyle body2UnderLine({required Color color}) => TextStyle(
       fontSize: 16,
       fontWeight: FontWeight.w400,

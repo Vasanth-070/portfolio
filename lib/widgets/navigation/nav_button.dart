@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/utils/constants.dart';
+import 'package:portfolio/widgets/navigation/nav_bar.dart';
 
 import '../../theme_data/app_text_theme_data.dart';
 
 class NavButton extends StatefulWidget {
-  final String title;
-  const NavButton({super.key, required this.title});
+  final NavButtonType type;
+  final VoidCallback onTap;
+  const NavButton({super.key, required this.type, required this.onTap});
 
   @override
   State<NavButton> createState() => _NavButtonState();
@@ -30,11 +32,14 @@ class _NavButtonState extends State<NavButton> {
               onHover = false;
             });
           },
-          child: Text(widget.title,
-              style: AppTextTheme.body2Medium(
-                  color: onHover
-                      ? Constants.themeColor.gray900
-                      : Constants.themeColor.gray600))),
+          child: InkWell(
+            onTap: widget.onTap,
+            child: Text(widget.type.value,
+                style: AppTextTheme.body2Medium(
+                    color: onHover
+                        ? Constants.themeColor.gray900
+                        : Constants.themeColor.gray600)),
+          )),
     );
   }
 }

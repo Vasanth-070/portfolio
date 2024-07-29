@@ -1,3 +1,5 @@
+import 'package:portfolio/models/connectivity_app_model.dart';
+
 class ProfileViewViewModel {
   final String title = 'Hi, I’m Vasanth 👋';
   final String subtitle =
@@ -5,5 +7,5 @@ class ProfileViewViewModel {
   final availability = "Available for new projects";
   final location = "Ahmedabad, India";
   final image = "profile_pic.jpeg";
-  final connectivityApps = ["git.png", "twitter.png", "figma.png"];
+  final connectivityApps = [ConnectivityAppModel(imageName: 'git.png', url: 'https://www.github.com'),ConnectivityAppModel(imageName: 'twitter.png', url: 'https://www.x.com'),ConnectivityAppModel(imageName: 'figma.png', url: 'https://www.figma.com')];
 }

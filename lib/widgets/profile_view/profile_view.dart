@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/theme_data/app_text_theme_data.dart';
+import 'package:portfolio/ui_utils/color_util.dart';
 import 'package:portfolio/ui_utils/colors.dart';
 import 'package:portfolio/utils/constants.dart';
+import 'package:portfolio/utils/url_util.dart';
+import 'package:portfolio/widgets/components/hoverable_widget.dart';
 import 'package:portfolio/widgets/components/stacked_image.dart';
 import 'package:portfolio/widgets/profile_view/profile_view_style.dart';
 import 'package:portfolio/widgets/profile_view/profile_view_vm.dart';
@@ -62,13 +65,20 @@ class ProfileView extends StatelessWidget {
               Gap(styler.verticalSpace2),
               Row(
                 children: [
-                  for (var image in vm.connectivityApps)
-                    Container(
-                      padding: styler.connectingAppsPadding,
-                      child: ImageIcon(
-                        AssetImage(getAssetPath(image)),
-                        size: styler.socialAppSize.height,
-                        color: Constants.themeColor.gray600,
+                  for (var app in vm.connectivityApps)
+                    HoverableWidget(
+                      data: HoverableWidgetData(
+                          backgroundColor: Colors.transparent,
+                          hoveredColor: Colorss.themeColor.gray100,
+                          size: styler.socialAppContainerSize,
+                          borderRadius: styler.socialAppContainerRadius),
+                      child: InkWell(
+                        onTap: () => checAndLaunchUrl(url: app.url),
+                        child: ImageIcon(
+                          AssetImage(getAssetPath(app.imageName)),
+                          size: styler.socialAppSize.height,
+                          color: Constants.themeColor.gray600,
+                        ),
                       ),
                     )
                 ],
